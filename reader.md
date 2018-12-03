@@ -1,0 +1,43 @@
+f# Off-Screen Rendering（离屏渲染）
+
+ Platform | Build Status
+ -------- | ------------
+ iOS | iOS9.0 later
+ 
+ ### On-Screen Rendering
+ GPU的渲染操作是在当前用于显示的屏幕缓冲区中进行
+ 
+ ### Off-Screen Rendering
+ - 1.GPU在当前屏幕缓冲区以外开辟一个c缓冲区进行渲染操作
+ - 2.CPU渲染（调用drawRect,并且使用Core Graphics技术进行绘制操作), [Desiging for iOS: Graphics & Performance](https://robots.thoughtbot.com/designing-for-ios-graphics-performance)
+ 
+ ### What Off-Screen Rendering
+   - 离屏渲染的代价很高，想要进行离屏渲染，首选要创建一个新的缓冲区，屏幕渲染会有一个上下文环境的一个概念，
+   
+- 离屏渲染的整个过程需要切换上下文环境，先从当前屏幕切换到离屏，等结束后，又要将上下文环境切换回来。这也是
+- 为什么会消耗性能的原因了。
+  - 由于垂直同步的机制，如果在一个 HSync 时间内，CPU 或者 GPU 没有完成内容提交，则那一帧就会被丢弃，等待下
+- 一次机会再显示，而这时显示屏会保留之前的内容不变。这就是界面卡顿的原因。
+ 
+ ### Why Off-Screen Rendering
+   - 有些效果被认为不能直接呈现于屏幕，而需要在别的地方做额外的处理预合成。图层属性的混合体没有预合成之前不能
+- 直接在屏幕中绘制，所以就需要屏幕外渲染。屏幕外渲染并不意味着软件绘制，但是它意味着图层必须在被显示之前在一
+- 个屏幕外上下文中被渲染（不论CPU还是GPU
+
+### 哪些操作会触发离屏渲染
+ - 为图层设置遮罩
+ - 将图层的layer.masksToBounds / view.clipsToBounds属性设置为true
+ - 将图层layer.allowsGroupOpacity属性设置为YES和layer.opacity小于1.0
+ - 为图层设置阴影（layer.shadow *)
+ - 为图层设置layer.shouldRasterize=true
+ - 具有layer.cornerRadius，layer.edgeAntialiasingMask，layer.allowsEdgeAntialiasing的图层
+ - 文本（任何种类，包括UILabel，CATextLayer，Core Text等
+ - 使用CGContext在drawRect :方法中绘制大部分情况下会导致离屏渲染，甚至仅仅是一个空的实现
+ - iOS 9.0 之后UIButton设置圆角会触发离屏渲染，而UIImageView里png图片设置圆角不会触发离屏渲染了，如果设置其他阴影效果之类的还是会触发离屏渲染的
+ 
+
+### 相关链接
+- [iOS界面渲染流程分析](http://www.cocoachina.com/ios/20181010/25123.html)
+- [iOS事件处理机制与图像渲染过程](https://www.jianshu.com/p/098db08b71cb)
+- [iOS保持界面流畅的技巧](https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/)
+- [iOS开发-视图渲染与性能优化](https://www.jianshu.com/p/748f9abafff8)
