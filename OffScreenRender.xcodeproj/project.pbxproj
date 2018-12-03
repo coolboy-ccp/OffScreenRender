@@ -12,6 +12,10 @@
 		00CE280421B5221200894451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CE280221B5221200894451 /* Main.storyboard */; };
 		00CE280621B5221300894451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CE280521B5221300894451 /* Assets.xcassets */; };
 		00CE280921B5221300894451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CE280721B5221300894451 /* LaunchScreen.storyboard */; };
+		00CE281321B523B100894451 /* ConerRadiusList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE281121B523B100894451 /* ConerRadiusList.swift */; };
+		00CE281421B523B100894451 /* ConerRadiusList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE281221B523B100894451 /* ConerRadiusList.xib */; };
+		00CE281721B5241600894451 /* ConerRadiusCel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE281521B5241600894451 /* ConerRadiusCel.swift */; };
+		00CE281821B5241600894451 /* ConerRadiusCel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE281621B5241600894451 /* ConerRadiusCel.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		00CE280521B5221300894451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00CE280821B5221300894451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00CE280A21B5221300894451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00CE281121B523B100894451 /* ConerRadiusList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConerRadiusList.swift; sourceTree = "<group>"; };
+		00CE281221B523B100894451 /* ConerRadiusList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConerRadiusList.xib; sourceTree = "<group>"; };
+		00CE281521B5241600894451 /* ConerRadiusCel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConerRadiusCel.swift; sourceTree = "<group>"; };
+		00CE281621B5241600894451 /* ConerRadiusCel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConerRadiusCel.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		00CE27FD21B5221200894451 /* OffScreenRender */ = {
 			isa = PBXGroup;
 			children = (
+				00CE281021B5237200894451 /* ConerRadius */,
 				00CE27FE21B5221200894451 /* AppDelegate.swift */,
 				00CE280021B5221200894451 /* ViewController.swift */,
 				00CE280221B5221200894451 /* Main.storyboard */,
@@ -62,6 +71,17 @@
 				00CE280A21B5221300894451 /* Info.plist */,
 			);
 			path = OffScreenRender;
+			sourceTree = "<group>";
+		};
+		00CE281021B5237200894451 /* ConerRadius */ = {
+			isa = PBXGroup;
+			children = (
+				00CE281121B523B100894451 /* ConerRadiusList.swift */,
+				00CE281221B523B100894451 /* ConerRadiusList.xib */,
+				00CE281521B5241600894451 /* ConerRadiusCel.swift */,
+				00CE281621B5241600894451 /* ConerRadiusCel.xib */,
+			);
+			path = ConerRadius;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +145,8 @@
 				00CE280921B5221300894451 /* LaunchScreen.storyboard in Resources */,
 				00CE280621B5221300894451 /* Assets.xcassets in Resources */,
 				00CE280421B5221200894451 /* Main.storyboard in Resources */,
+				00CE281821B5241600894451 /* ConerRadiusCel.xib in Resources */,
+				00CE281421B523B100894451 /* ConerRadiusList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +159,8 @@
 			files = (
 				00CE280121B5221200894451 /* ViewController.swift in Sources */,
 				00CE27FF21B5221200894451 /* AppDelegate.swift in Sources */,
+				00CE281721B5241600894451 /* ConerRadiusCel.swift in Sources */,
+				00CE281321B523B100894451 /* ConerRadiusList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +307,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ND2NE475A9;
+				DEVELOPMENT_TEAM = 2ZWG74JT22;
 				INFOPLIST_FILE = OffScreenRender/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,8 +326,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ND2NE475A9;
+				DEVELOPMENT_TEAM = 2ZWG74JT22;
 				INFOPLIST_FILE = OffScreenRender/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
